@@ -45,17 +45,17 @@ namespace MyFirstService
             {
                 Directory.CreateDirectory(path);
             }
-            string filepath = AppDomain.CurrentDomain.BaseDirectory + "\\Logs\\ServiceLog_" + DateTime.Now.Date.ToShortDateString().Replace('/', '_') + ".txt";
-            if (!File.Exists(filepath))
+            string filePath = AppDomain.CurrentDomain.BaseDirectory + "\\Logs\\ServiceLog_" + DateTime.Now.Date.ToShortDateString().Replace('/', '_') + ".txt";
+            if (!File.Exists(filePath))
             {
-                using (StreamWriter sw = File.CreateText(filepath))
+                using (StreamWriter sw = File.CreateText(filePath))
                 {
                     sw.WriteLine(Message);
                 }
             }
             else
             {
-                using (StreamWriter sw = File.AppendText(filepath))
+                using (StreamWriter sw = File.AppendText(filePath))
                 {
                     sw.WriteLine(Message);
                 }
